@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeScramble | Computer Science Jumbled Words</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background decorations -->
+    <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+
+    <main class="game-wrapper">
+
+        <!-- Header -->
+        <header class="game-header">
+
+            <div class="logo">
+                <div class="logo-icon">&lt;/&gt;</div>
+
+                <div>
+                    <h1>CodeScramble</h1>
+                    <p>Computer Science Word Challenge</p>
+                </div>
+            </div>
+
+            <div class="header-badge">
+                HARD MODE
+            </div>
+
+        </header>
+
+
+        <!-- Main Game Card -->
+        <section class="game-card">
+
+            <!-- Top information -->
+            <div class="game-top">
+
+                <div class="stat-box">
+                    <span class="stat-title">QUESTION</span>
+
+                    <span class="stat-value">
+                        <span id="currentQuestion">1</span>/10
+                    </span>
+                </div>
+
+
+                <div class="timer-box" id="timerBox">
+
+                    <span class="timer-label">TIME LEFT</span>
+
+                    <div class="timer">
+                        <span id="timer">20</span>
+                        <span class="seconds">s</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-box">
+                    <span class="stat-title">SCORE</span>
+
+                    <span class="stat-value" id="score">
+                        0
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+
+                <div
+                    class="progress-bar"
+                    id="progressBar">
+                </div>
+
+            </div>
+
+
+            <!-- Category -->
+            <div class="category">
+                COMPUTER SCIENCE
+            </div>
+
+
+            <p class="instruction">
+                Unscramble the letters and discover the hidden technical term.
+            </p>
+
+
+            <!-- Jumbled Word -->
+            <div class="word-container">
+
+                <p class="word-label">
+                    JUMBLED WORD
+                </p>
+
+                <h2 id="jumbledWord">
+                    Loading...
+                </h2>
+
+            </div>
+
+
+            <!-- Hint -->
+            <div class="hint-box">
+
+                <span class="hint-icon">
+                    💡
+                </span>
+
+                <div>
+                    <span class="hint-title">
+                        HINT
+                    </span>
+
+                    <p id="hintText">
+                        Loading hint...
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Answer Input -->
+            <div class="answer-section">
+
+                <label for="answerInput">
+                    YOUR ANSWER
+                </label>
+
+                <div class="input-group">
+
+                    <input
+                        type="text"
+                        id="answerInput"
+                        placeholder="Type the original word..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        id="submitBtn"
+                        onclick="checkAnswer()">
+                        CHECK ANSWER
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Message -->
+            <div
+                class="message"
+                id="message">
+            </div>
+
+
+            <p class="keyboard-tip">
+                Press <kbd>Enter</kbd> to submit your answer
+            </p>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <p>
+                <span>10</span> Expert-Level Questions
+            </p>
+
+            <p>
+                Built for Computer Science Students
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- TIME UP POPUP -->
+    <div
+        class="popup-overlay"
+        id="timePopup">
+
+        <div class="popup">
+
+            <div class="popup-icon">
+                ⏰
+            </div>
+
+            <h2>
+                Time's Up!
+            </h2>
+
+            <p>
+                The countdown has ended.
+            </p>
+
+            <p class="popup-description">
+                Would you like to reveal the correct answer?
+            </p>
+
+
+            <!-- Answer remains hidden initially -->
+            <div
+                class="hidden-answer"
+                id="hiddenAnswer">
+
+                <span>
+                    CORRECT ANSWER
+                </span>
+
+                <strong id="correctAnswer">
+                </strong>
+
+            </div>
+
+
+            <button
+                id="revealBtn"
+                class="reveal-btn"
+                onclick="revealAnswer()">
+
+                Reveal Answer
+
+            </button>
+
+
+            <button
+                id="nextBtn"
+                class="next-btn hidden"
+                onclick="nextQuestion()">
+
+                Next Question →
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- GAME COMPLETE POPUP -->
+    <div
+        class="popup-overlay"
+        id="resultPopup">
+
+        <div class="popup result-popup">
+
+            <div class="trophy">
+                🏆
+            </div>
+
+            <p class="completed-label">
+                CHALLENGE COMPLETE
+            </p>
+
+            <h2>
+                Great Work!
+            </h2>
+
+            <p>
+                You completed all 10 Computer Science challenges.
+            </p>
+
+
+            <div class="final-score">
+
+                <span>
+                    FINAL SCORE
+                </span>
+
+                <strong id="finalScore">
+                    0 / 10
+                </strong>
+
+            </div>
+
+
+            <p
+                class="performance"
+                id="performanceMessage">
+            </p>
+
+
+            <button
+                class="restart-btn"
+                onclick="restartGame()">
+
+                ↻ Play Again
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
